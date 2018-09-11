@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  YeahIDK
+//  ProfilePageDesign
 //
 //  Created by Sam Silverstein on 9/6/18.
 //  Copyright © 2018 Sam Silverstein. All rights reserved.
