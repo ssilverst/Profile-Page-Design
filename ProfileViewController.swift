@@ -25,7 +25,10 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UIScrollView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.applyGradient(colours: [UIColor.white , UIColor.purple])
+        //tableView.applyGradient(colours: [UIColor.white , UIColor.purple])
+        let gradientView : UIView! = UIView(frame: self.view.frame)
+        gradientView.applyGradient(colours: [UIColor.white , UIColor.purple])
+        self.tableView.addSubview(gradientView)
         profileImg.maskCircle(anyImage: profileImg.image!)
         profileView.maskCircle(2.0)
         biographyView.maskCircle(4.0)
@@ -92,6 +95,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UIScrollView
         updateHeaderView()
     }
 }
+
 extension UIImageView {
     public func maskCircle(anyImage: UIImage) {
         self.contentMode = UIViewContentMode.scaleAspectFill
@@ -101,6 +105,7 @@ extension UIImageView {
         self.image = anyImage
     }
 }
+
 extension UIView {
     public func maskCircle(_ factor: CGFloat) {
         self.contentMode = UIViewContentMode.scaleAspectFill
@@ -110,7 +115,21 @@ extension UIView {
         self.clipsToBounds = true
     }
 }
-extension UITableView {
+
+/*extension UITableView {
+    func applyGradient(colours: [UIColor]) -> Void {
+        self.applyGradient(colours: colours, locations: nil)
+    }
+    
+    func applyGradient(colours: [UIColor], locations: [NSNumber]?) -> Void {
+        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.frame = self.bounds
+        gradient.colors = colours.map { $0.withAlphaComponent(0.85).cgColor }
+        gradient.locations = locations
+        self.layer.addSublayer(gradient)
+    }
+}*/
+extension UIView {
     func applyGradient(colours: [UIColor]) -> Void {
         self.applyGradient(colours: colours, locations: nil)
     }
